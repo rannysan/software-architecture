@@ -7,11 +7,12 @@ import java.util.Scanner;
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<String> arlist = new ArrayList<String>();
-        boolean run = true;
 
+    private static boolean run = true;
+    private static Scanner scanner = new Scanner(System.in);
+    private static List<String> arlist = new List<String>();
+
+    public static void main(String[] args) {
         while (run) {
             System.out.println("Menu");
             System.out.println("Digite 1 para inserir o estudante ");
