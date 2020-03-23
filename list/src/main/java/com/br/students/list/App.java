@@ -1,6 +1,6 @@
 package com.br.students.list;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Scanner;
 
 /**
@@ -14,32 +14,39 @@ public class App {
 
     public static void main(String[] args) {
         while (run) {
-            System.out.println("Menu");
-            System.out.println("Digite 1 para inserir o estudante ");
-            System.out.println("Digite 2 para imprimir a lista ");
-
+            showMenu();
             String option = scanner.nextLine();
 
             if (option.equals("1")) {
-                System.out.println("Digite o nome do aluno: ");
-
-                String name = scanner.nextLine();
-                if (!arlist.contains(name)) {
-                    arlist.add(name);
-                } else {
-                    System.out.println("O aluno já esta cadastrado!");
-                }
-
+                addStudent();
             } else if (option.equals("2")) {
-                System.out.println("Listando ...");
-                for (String student : arlist) {
-                    System.out.println(student);
-                }
-                run = false;
+                listStudents();
             } else {
                 System.out.println("Digite uma opção válida");
             }
         }
         scanner.close();
+    }
+
+    private static  void showMenu() {
+        System.out.println("Menu");
+        System.out.println("Digite 1 para inserir o estudante ");
+        System.out.println("Digite 2 para imprimir a lista ");
+    }
+
+    private static void addStudent() {
+        System.out.println("Digite o nome do aluno: ");
+
+        String name = scanner.nextLine();
+        if (!arlist.contains(name)) {
+            arlist.add(name);
+        } else {
+            System.out.println("O aluno já esta cadastrado!");
+        }
+    }
+
+    private static void listStudents() {
+        System.out.println("Listando ...");
+        arlist.forEach(System.out::println);
     }
 }
